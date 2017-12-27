@@ -17,7 +17,8 @@ The code is written in python, you also need to install following python depende
 - Pillow==4.3.0
 - scikit-image==0.13.1
 - scipy==1.0.0
-You can alse use requirements.txt to install python dependencies:
+
+For convenience, you can alse use requirements.txt to install python dependencies:
 
 	pip install -r requirements.txt
 
