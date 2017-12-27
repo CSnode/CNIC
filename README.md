@@ -58,4 +58,4 @@ Use server.py to load models, and use client to request caption generation:
 ## Tensorboard visualization
 To use tensorboard to monitor training process:
 
-	tensorboard --logdir="model_path"
+	tensorboard --logdir="MODEL_PATH"
