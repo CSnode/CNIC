@@ -45,7 +45,7 @@ To generate training data for Flickr8k-CN, please use build_flickr8k_data.py scr
 	python build_flickr8k_data.py
   
 ## Train model
-Use caption network use train.py:
+For caption network use train.py:
 
 	python train.py
   
