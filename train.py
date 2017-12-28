@@ -12,6 +12,7 @@ tf.flags.DEFINE_boolean("train_inception",False,"Whether to train inception subm
 tf.flags.DEFINE_integer("number_of_steps",1000000,"Number of training steps.")
 tf.flags.DEFINE_integer("log_every_n_steps",1,"Frequency at which loss and global step are logged.")
 tf.logging.set_verbosity(tf.logging.INFO)
+
 def main(unused_argv):
  assert FLAGS.input_file_pattern,"--input_file_pattern is required"
  assert FLAGS.train_dir,"--train_dir is required"

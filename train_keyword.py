@@ -9,6 +9,7 @@ from util import load_image
 import os
 import ipdb
 import math
+
 weight_path='caffe_layers_value.pickle'
 model_path='./models/mil/'
 pretrained_model_path=None 
@@ -24,6 +25,7 @@ allset=pd.read_pickle(allset_path)
 train_index_file_path="./AI.trainImages.txt"
 val_index_file_path="./AI.devImages.txt"
 test_index_file_path="./AI.testImages.txt"
+
 test_filenames=list(pd.read_table(test_index_file_path,header=None,names=['filename']).filename)
 val_filenames=list(pd.read_table(val_index_file_path,header=None,names=['filename']).filename)
 train_filenames=list(pd.read_table(train_index_file_path,header=None,names=['filename']).filename)
@@ -36,6 +38,7 @@ testset['filename']=testset['filename'].map(lambda x:os.path.join(image_path,x))
 with open(wordset_path)as f:
  wordset=cPickle.load(f)
 n_labels=len(wordset)
+
 learning_rate=tf.placeholder(tf.float32,[])
 images_tf=tf.placeholder(tf.float32,[None,224,224,3],name="images")
 labels_tf=tf.placeholder(tf.float32,[None,1220],name='labels')
@@ -53,6 +56,7 @@ grads_and_vars=optimizer.compute_gradients(loss_tf)
 grads_and_vars=map(lambda gv:(gv[0],gv[1])if('conv6' in gv[1].name or 'GAP' in gv[1].name)else(gv[0]*0.1,gv[1]),grads_and_vars)
 train_op=optimizer.apply_gradients(grads_and_vars)
 tf.initialize_all_variables().run()
+
 if pretrained_model_path:
  print "Pretrained"
  saver.restore(sess,pretrained_model_path)
