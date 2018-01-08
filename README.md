@@ -1,6 +1,6 @@
 # CNIC
 
-Source code for Chinese image caption method based on multimodal neural network runnable on GPU and CPU.
+Source code for Chinese image caption method based on deep multimodal semantic fusion runnable on GPU and CPU.
 
 ### License
 This code is released under the MIT License (refer to the LICENSE file for details).
@@ -30,6 +30,11 @@ Though you can run the code on CPU, we highly recommend you to equip a GPU card.
 
 	export CUDA_VISIBLE_DEVICES=""
 
+## Prepare data
+To generate training data for Flickr8k-CN, please use build_flickr8k_data.py script:
+
+	python build_flickr8k_data.py
+  
 ## Train single-lable visual encoding model
 We use Google Inception V3 for single-lable visual encoding network: see
 [Inception](https://github.com/tensorflow/models/tree/master/research/inception) for the instructions.
@@ -39,18 +44,13 @@ Please run train_keyword.py using gpu:
 
 	CUDA_VISIBLE_DEVICES=0 python train_keyword.py
   
-## Prepare data
-To generate training data for Flickr8k-CN, please use build_flickr8k_data.py script:
-
-	python build_flickr8k_data.py
-  
 ## Train model
-For caption network use train.py:
+For multimodal caption generation network use train.py:
 
 	python train.py
   
 ## Generate caption and visualize
-Use server.py to load models, and use client to request caption generation:
+Use server.py to load models, and use client.py to request caption generation:
 
 	python server.py
  	python client.py
