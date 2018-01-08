@@ -1,6 +1,6 @@
 # CNIC
 
-Source code for Chinese image caption method based on deep multimodal semantic fusion runnable on GPU and CPU.
+Source code for Chinese image captioning method based on deep multimodal semantic fusion runnable on GPU and CPU.
 
 ### License
 This code is released under the MIT License (refer to the LICENSE file for details).
@@ -17,6 +17,7 @@ The code is written in python, you also need to install following python depende
 - Pillow==4.3.0
 - scikit-image==0.13.1
 - scipy==1.0.0
+- jieba==0.38
 
 For convenience, you can alse use requirements.txt to install python dependencies:
 
@@ -44,7 +45,7 @@ Please run train_keyword.py using gpu:
 
 	CUDA_VISIBLE_DEVICES=0 python train_keyword.py
   
-## Train model
+## Train multimodal caption generation model
 For multimodal caption generation network use train.py:
 
 	python train.py
